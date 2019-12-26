@@ -1,0 +1,57 @@
+; AutoCAD Automated Plotting for Laser Cutting (AAPLC)
+; An automated script for AutoCAD to perform plotting to PDF for laser cutters
+; Tested with AutoCAD 2020
+;
+; Setup:
+;   1. You must install the lasercut.ctb plot style table into AutoCAD. 
+;      Key in "STYLESMANAGER" command into AutoCAD and it will open the folder
+;      for you to place the .ctb file inside.
+;      This file should be distributed with your copy of this script
+;   2. All of the objects you intend to laser cut must fit within the 
+;      600 x 400 mm boundaries relative to the origin, and must be on the
+;      default layer, color 7, for the plot style to correctly convert the line
+;      into a red hairline.
+;   3. Ensure that all lines are single lines, with no overlapping lines
+;      that may not be obvious! Overlapping lines will cause double cuts in the
+;      machine and may result in a fire.
+;   4. Please INSPECT your PDF after each plot operation! This script cannot
+;      make any guarentees for plotting accuracy.
+;
+; By Pan Ziyue 2019 (Github: d3lta-v)
+; This script is in the public domain
+;
+-PLOT
+; Use detailed plot configuration
+Y
+; Use default layout (blank line)
+
+; Use High Quality Print PDF writer
+AutoCAD PDF (High Quality Print).pc3
+; Paper size. We use A1 to guarantee coverage for most laser cutter's 600mm by 400mm build dimensions
+ISO A1 (841.00 x 594.00 MM)
+; Use [M]illimeters
+M
+; Plot in [L]andscape orientation
+L
+; Do not plot upside down
+N
+; Use [L]ayout plot area to plot the entire thing
+L
+; 1 to 1 plot scale
+1:1
+; Center the objects
+Center
+; Plot with custom plotstyle
+Y
+; Name of custom plotstyle
+lasercut.ctb
+; Plot with lineweights
+Y
+; Shade plot as displayed (default option, blank line)
+A
+; Use default filename (blank line)
+
+; Do not save changes to page setup
+N
+; Proceed with plot
+Y
