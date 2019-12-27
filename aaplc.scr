@@ -49,9 +49,9 @@ lasercut.ctb
 Y
 ; Shade plot as displayed (default option, blank line)
 A
-; Use default filename (blank line)
+; Automatically construct unique filename with date and timestamp and save to the same folder as the DWG
+(strcat (getvar "dwgprefix") "LASERCUT-" (substr (getvar "dwgname") 1 (-(strlen (getvar "dwgname")) 4)) "-" (rtos (getvar "cdate") 2 6))
 
-; Do not save changes to page setup
-N
-; Proceed with plot
-Y
+; Do not save changes to page setup (blank line)
+
+; Proceed with plot (blank line)
