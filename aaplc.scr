@@ -1,6 +1,6 @@
 ; AutoCAD Automated Plotting for Laser Cutting (AAPLC)
 ; An automated script for AutoCAD to perform plotting to PDF for laser cutters
-; Tested with AutoCAD 2020
+; Tested with AutoCAD 2020. Will not work with LT versions as this script uses AutoLISP
 ;
 ; Setup:
 ;   1. You must install the lasercut.ctb plot style table into AutoCAD. 
@@ -35,12 +35,14 @@ M
 L
 ; Do not plot upside down
 N
-; Use [L]ayout plot area to plot the entire thing
-L
+; Use [W]indow plot area to 600x400mm
+W
+0,0
+600,400
 ; 1 to 1 plot scale
 1:1
-; Center the objects
-Center
+; No offset
+0,0
 ; Plot with custom plotstyle
 Y
 ; Name of custom plotstyle
